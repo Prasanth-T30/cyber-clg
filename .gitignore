@@ -1,0 +1,50 @@
+# ── Windows launcher scripts (not needed in repo) ──
+*.bat
+*.ps1
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+__pycache__/
+*.pyc
+.Python
+
+# ML Models
+backend/app/ml/models/saved/*.keras
+backend/app/ml/models/saved/*.h5
+backend/app/ml/models/saved/*.pkl
+
+# Environment files
+.env
+.env.local
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build/Dist
+dist/
+build/
+*.egg-info/
+
+# Refactor cache
+.refact/
+
+# Virtual environments
+venv/
+env/
+
+# Node
+npm-debug.log
+yarn-error.log
+
+# Misc
+.git/lfs
+*.log

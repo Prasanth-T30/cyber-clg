@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Hide native cursor globally – CyberCursor renders a custom one ── */
+*, *::before, *::after { cursor: none !important; }
+
+@layer base {
+  :root {
+    --scrollbar-track: #1f2937;
+    --scrollbar-thumb: #374151;
+  }
+  .light {
+    --scrollbar-track: #e5e7eb;
+    --scrollbar-thumb: #9ca3af;
+  }
+  html { @apply antialiased; }
+  body { @apply font-sans; }
+}
+
+@layer components {
+  /* Card */
+  .card {
+    @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm;
+  }
+  /* Input */
+  .input {
+    @apply w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600
+           text-gray-900 dark:text-gray-100 text-sm rounded-lg px-3 py-2
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500
+           transition-colors placeholder-gray-400 dark:placeholder-gray-500;
+  }
+  /* Button primary */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 active:bg-brand-900
+           text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors
+           disabled:opacity-50 disabled:cursor-not-allowed shadow-sm;
+  }
+  /* Button secondary */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-700
+           hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200
+           text-sm font-medium px-4 py-2 rounded-lg transition-colors;
+  }
+  /* Label */
+  .label {
+    @apply text-xs font-medium text-gray-600 dark:text-gray-400 block mb-1;
+  }
+  /* Page heading */
+  .page-title {
+    @apply text-2xl font-bold text-gray-900 dark:text-white tracking-tight;
+  }
+  /* Section heading */
+  .section-title {
+    @apply text-base font-semibold text-gray-800 dark:text-gray-100;
+  }
+  /* Stat value */
+  .stat-value {
+    @apply text-3xl font-bold text-gray-900 dark:text-white tabular-nums;
+  }
+  /* Stat label */
+  .stat-label {
+    @apply text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb  { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+
+/* Smooth transitions for theme switch */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+/* Exclude transitions on elements that shouldn't flash */
+.no-transition, .no-transition * {
+  transition: none !important;
+}
